@@ -29,6 +29,15 @@ gem 'spring',        group: :development
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+
+gem 'bootstrap-sass',       '3.2.0.0'
+
+#To use haml format
+gem 'haml'
+
+#To use haml generator
+gem 'haml-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
