@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141223061125) do
+ActiveRecord::Schema.define(version: 20141223080329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "messages", force: true do |t|
+    t.text     "content_text"
+    t.integer  "conversation_id"
+    t.integer  "participant_id"
+    t.string   "participant_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+  add_index "messages", ["participant_id"], name: "index_messages_on_participant_id", using: :btree
 
   create_table "skill_sets", force: true do |t|
     t.string   "name"
