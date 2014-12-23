@@ -16,6 +16,13 @@ ActiveRecord::Schema.define(version: 20141223080329) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "chat_ques", force: true do |t|
+    t.string   "name"
+    t.boolean  "is_active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "messages", force: true do |t|
     t.text     "content_text"
     t.integer  "conversation_id"
