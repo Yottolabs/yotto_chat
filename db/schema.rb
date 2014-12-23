@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141223123508) do
+ActiveRecord::Schema.define(version: 20141223125617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 20141223123508) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "conversations", force: true do |t|
+    t.integer  "chat_que_customer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conversations", ["chat_que_customer_id"], name: "index_conversations_on_chat_que_customer_id", using: :btree
 
   create_table "customers", force: true do |t|
     t.string   "name"
