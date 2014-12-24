@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141223125617) do
+ActiveRecord::Schema.define(version: 20141224060020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20141223125617) do
     t.integer  "chat_que_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "status_id"
   end
 
   add_index "chat_que_customers", ["chat_que_id"], name: "index_chat_que_customers_on_chat_que_id", using: :btree
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20141223125617) do
     t.integer  "chat_que_customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "status_id"
   end
 
   add_index "conversations", ["chat_que_customer_id"], name: "index_conversations_on_chat_que_customer_id", using: :btree
@@ -63,6 +65,12 @@ ActiveRecord::Schema.define(version: 20141223125617) do
   add_index "messages", ["participant_id"], name: "index_messages_on_participant_id", using: :btree
 
   create_table "skill_sets", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statuses", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
