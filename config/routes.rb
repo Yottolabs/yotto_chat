@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  #get 'skill_sets/new'
+
   get 'sessions/new'
 
   #get 'users/new'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :users
+  resources :skill_sets
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
