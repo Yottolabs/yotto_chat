@@ -38,6 +38,10 @@ gem 'haml'
 #To use haml generator
 gem 'haml-rails'
 
+gem 'will_paginate',           '3.0.7'
+gem 'bootstrap-will_paginate', '0.0.10'
+
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
