@@ -1,0 +1,8 @@
+- provide(:title, @skill_set.name)
+%div.row
+  %aside.col-md-4
+    %section.user_info
+      %h1
+        = @skill_set.name 
+      %h3 
+      = link_to "All Skill Sets", skill_sets_path  

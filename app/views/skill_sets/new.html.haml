@@ -1,0 +1,11 @@
+-provide(:title, 'Skill Set')
+%h1 Create Skill Set
+%div.row
+  %div.col-md-6.col-md-offset-3
+    = form_for(@skill_set) do |f|
+      = render 'shared/error_messages', object: f.object
+
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+
+      = f.submit "Create New Skill Set",class: "btn btn-primary" 
