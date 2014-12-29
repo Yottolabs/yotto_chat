@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'chat_que/new'
+
+  get 'chat_que/show'
+
+  get 'chat_que/index'
+
+  get 'chat_que/edit'
+
   #get 'skill_sets/new'
 
   get 'sessions/new'
@@ -14,6 +22,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :skill_sets
+  resources :chat_ques
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
