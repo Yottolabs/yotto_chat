@@ -1,0 +1,8 @@
+- provide(:title, @chat_que.name)
+%div.row
+  %aside.col-md-4
+    %section.user_info
+      %h1
+        = @chat_que.name 
+      %h3 
+      = link_to "All Chat Ques", chat_ques_path  

@@ -1,0 +1,15 @@
+-provide(:title, 'Chat Que')
+%h1 Create Chat Que
+%div.row
+  %div.col-md-6.col-md-offset-3
+    = form_for(@chat_que) do |f|
+      = render 'shared/error_messages', object: f.object
+
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+
+      = f.label :is_active, class: "checkbox inline" do 
+        = f.check_box :is_active, {:checked=>true}
+        %span Active Chat Que
+
+      = f.submit "Create New Chat Que",class: "btn btn-primary" 

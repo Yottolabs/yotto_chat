@@ -1,0 +1,14 @@
+- provide(:title, 'All Chat Ques')
+%h1 All Chat Ques
+%h3 
+  = link_to "Add Chat Que", new_chat_que_path
+=will_paginate
+%ul.skills
+  - @chat_ques.each do |chat_que|
+    %li
+      = link_to chat_que.name, chat_que
+      - #if current_user.admin? && !current_user?(user) 
+      = link_to "edit", edit_chat_que_path(chat_que)
+      = link_to "delete", chat_que, method: :delete,
+                                  data: { confirm: "You sure?" }
+=will_paginate
