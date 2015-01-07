@@ -4,7 +4,8 @@ class ChatQueCustomer < ActiveRecord::Base
   belongs_to :status
   has_one :conversation
 
+
   validates :customer_id,  presence: true
-  validates :cha_que_id,  presence: true
-  validates :status_id,  presence: true
+  validates :chat_que_id,  presence: true
+
 end

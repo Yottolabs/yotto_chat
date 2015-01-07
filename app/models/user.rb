@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 	attr_accessor :remember_token
-  #has_and_belongs_to_many :skill_set
+  has_and_belongs_to_many :skill_sets, join_table: :users_skill_sets
 	before_save { self.email = email.downcase }
 	validates :name,  presence: true, length: { maximum: 50 } 
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

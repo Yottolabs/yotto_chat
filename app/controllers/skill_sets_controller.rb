@@ -2,7 +2,8 @@ class SkillSetsController < ApplicationController
   before_action :logged_in_user
   
   def index
-    @skill_sets = SkillSet.paginate(page: params[:page])
+    #@skill_sets = SkillSet.paginate(page: params[:page])
+    @skill_sets = current_user.skill_sets.paginate(page: params[:page])
   end
   def show
     @skill_set = SkillSet.find(params[:id])
@@ -16,7 +17,8 @@ class SkillSetsController < ApplicationController
   end
   def create
     @skill_set = SkillSet.new(skill_set_params)
-    if @skill_set.save   
+    if @skill_set.save  
+      @skill_set.users << @current_user
       flash[:success] = "Skill Set Added Successfully."
       redirect_to @skill_set
       # Handle a successful save.
