@@ -1,0 +1,25 @@
+/ - provide(:title, 'All Chat Ques')
+/ %h1 All Chat Ques
+/ %h3 
+- provide(:title, 'All Customers')
+%h1 All Customers
+%h3 
+  = #ink_to "Add Chat Que", new_chat_que_path
+=#will_paginate
+=# debug(@chat_ques)
+%ul.skills
+  - @current_user_skill_sets.each do |cuskill_set|
+    - if cuskill_set.chat_que.present?
+      - cuskill_set.chat_que.chat_que_customers.each do |cuskcq_customer|
+        -if cuskcq_customer.present?
+          %li
+            = link_to cuskcq_customer.customer.name, '#'
+        
+=#will_paginate
+
+/ - @current_user_skill_sets.each do |cuskill_set|
+/   - cuskill_set.chat_que.chat_que_customers.each do |cuskcq_customer|
+/     = debug cuskcq_customer.id
+/     = debug cuskcq_customer.customer.name
+    
+    
