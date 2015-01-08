@@ -38,8 +38,9 @@ gem 'haml'
 #To use haml generator
 gem 'haml-rails'
 
-gem 'will_paginate',           '3.0.7'
-gem 'bootstrap-will_paginate', '0.0.10'
+#To use pagination
+gem 'kaminari'
+
 
 group :development do
   gem 'annotate', '~> 2.6.5'
