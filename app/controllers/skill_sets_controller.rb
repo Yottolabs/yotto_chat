@@ -2,19 +2,17 @@ class SkillSetsController < ApplicationController
   before_action :logged_in_user
   
   def index
-    #@skill_sets = SkillSet.paginate(page: params[:page])
-    @skill_sets = current_user.skill_sets.paginate(page: params[:page])
+    @skill_sets = SkillSet.base
+    
   end
+
   def show
     @skill_set = SkillSet.find(params[:id])
   end
   def new
-    if logged_in?
       @skill_set = SkillSet.new
-    else  
-      redirect_to root_url
-    end  
   end
+ 
   def create
     @skill_set = SkillSet.new(skill_set_params)
     if @skill_set.save  

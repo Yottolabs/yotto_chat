@@ -1,0 +1,7 @@
+-if skill_set.children.present?
+  %li
+    = "#{skill_set.id}-#{skill_set.name}"
+    %ul
+      =render partial: 'skill_set', collection: skill_set.children
+- else
+  %li= "#{skill_set.id}-#{skill_set.name}"
