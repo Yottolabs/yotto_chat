@@ -1,14 +1,8 @@
 - provide(:title, 'All Skill Sets')
 %h1 All Skill Sets
-%h3 
-  = link_to "Add Skill Set", new_skill_set_path
-=will_paginate
-%ul.skills
-  - @skill_sets.each do |skill_set|
-    %li
-      = link_to skill_set.name, skill_set
-      - #if current_user.admin? && !current_user?(user) 
-      = link_to "edit", edit_skill_set_path(skill_set)
-      = link_to "delete", skill_set, method: :delete,
-                                  data: { confirm: "You sure?" }
-=will_paginate
+%div#listView
+  %ul
+    = render :partial=>'skill_set', :collection => @skill_sets
+
+
+ 
