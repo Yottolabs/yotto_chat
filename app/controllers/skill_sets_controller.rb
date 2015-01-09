@@ -10,6 +10,7 @@ class SkillSetsController < ApplicationController
   end
   def new
       @skill_set = SkillSet.new
+      @users = User.all
   end
  
   def create
@@ -49,4 +50,14 @@ class SkillSetsController < ApplicationController
     def skill_set_params
       params.require(:skill_set).permit(:name)
     end
+
+    def ancestry_options(items)
+    result = []
+    items.map do |item, sub_items|
+      result << [yield(item), item.id]
+      #this is a recursive call:
+      result += ancestry_options(sub_items) {|i| "#{'-' * i.depth} #{i.name}" }
+    end
+    result
+  end
 end
