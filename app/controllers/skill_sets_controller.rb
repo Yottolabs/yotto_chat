@@ -3,7 +3,6 @@ class SkillSetsController < ApplicationController
   
   def index
     @skill_sets = SkillSet.base
-    
   end
 
   def show
