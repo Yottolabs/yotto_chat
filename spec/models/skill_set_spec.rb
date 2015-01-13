@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: skill_sets
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#  parent_id  :integer
+#
+
 require 'rails_helper'
 
 describe SkillSet do
