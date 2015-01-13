@@ -2,6 +2,7 @@
   %div#error_explanation
     %div.alert.alert-danger
       = "The form contains #{pluralize(object.errors.count, "error")} ."
+      = debug object.errors
     %ul
     - object.errors.full_messages.each do |msg|
       %li= msg

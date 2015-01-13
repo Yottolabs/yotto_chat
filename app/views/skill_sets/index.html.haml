@@ -1,8 +1,8 @@
 - provide(:title, 'All Skill Sets')
 %h1 All Skill Sets
-%div#listView
+#listView
   %ul
-    = render :partial=>'skill_set', :collection => @skill_sets
+    = render partial: 'skill_set', collection: @skill_sets
 
 
  
