@@ -15,6 +15,6 @@
 class User < ActiveRecord::Base
 	 include AuthModel
 
-   has_and_belongs_to_many :skill_sets, join_table: :users_skill_sets
+   has_and_belongs_to_many :skill_sets
 
 end
