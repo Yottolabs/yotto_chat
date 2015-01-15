@@ -13,7 +13,29 @@ no_bullet {
   padding: 0;
   cursor: pointer;
 }
+li{
+  list-style: none;
+}
+ul{
+ list-style: none;
+}
 
+.ele-row{
+  clear: both;
+}
+.ele-col-left{
+  float:left;
+  input[type='radio']{
+  width   : 18px;
+  margin  : 0;
+  padding : 0;
+  
+}
+}
+.ele-col-right{
+  float:left;
+  
+}
 
 .expList {
   clear: both;
@@ -59,6 +81,38 @@ $color_boston_blue_approx: rgb(66, 139, 202);
   margin-bottom: 0;
 }
 
+//colors
+$white: white;
+$color_regal_blue_approx: #024069;
+$color_shakespeare_approx: #5ba5de;
+
+.skill_set_dropdown {
+  height: 250px;
+  overflow-y: scroll;
+  margin: 0 0 15px 0;
+}
+.skill_set_dropdown_navbar {
+  weidth: 30px;
+  text-align: center;
+  color: $white;
+  border: 1px solid $color_regal_blue_approx;
+  //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+  
+  background-color: #5BA5DE;
+}
+.skill_set_user_list {
+  weidth: 150px;
+  text-align: center;
+  color: $white;
+  border: 1px solid $color_regal_blue_approx;
+  
+  background-color: #5BA5DE;
+  margin: 0 0 25px 0;
+}
+.skill_list_area{
+  max-height: 300px;
+  overflow: auto;
+}
 
 
 
