@@ -6,7 +6,7 @@
       %div.ele-col-right
         = "#{skill_set.id}-#{skill_set.name}"
     %ul
-      =render partial: 'skill_set_dropdown' , collection: skill_set.children,as: :skill_set
+      =render partial: 'skill_sets/skill_set_dropdown' , collection: skill_set.children,as: :skill_set
 - else
   %li
     %div.ele-row
