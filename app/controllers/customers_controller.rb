@@ -9,7 +9,7 @@ class CustomersController < ApplicationController
   end
   def new
     @customer = Customer.new
-    @all_skill_sets = SkillSet.all
+    @skill_sets = SkillSet.base
   end
   def create
     
@@ -18,13 +18,13 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params) 
     
     if @find_customer
-      @find_customer.chat_ques << ChatQue.find_by_skill_set_id(params[:skill_set_id])
+      @find_customer.chat_ques << ChatQue.find_by_skill_set_id(params[:skill_set][:parent_id])
       flash[:success] = "Welcome to the Yotto Chat App! Please Wait Our Agent Will Serve You Soon."
       
       redirect_to customers_home_path
     else
       if @customer.save 
-         @customer.chat_ques << ChatQue.find_by_skill_set_id(params[:skill_set_id])
+         @customer.chat_ques << ChatQue.find_by_skill_set_id(params[:skill_set][:parent_id])
         #@customer.chat_ques << @chat_que
         #_cqc = ChatQueCustomer.new
         #_cqc.customer = @customer
@@ -36,6 +36,7 @@ class CustomersController < ApplicationController
         redirect_to customers_home_path
          # Handle a successful save.
       else
+        @skill_sets = SkillSet.base
         render 'new'
       end
     end  
