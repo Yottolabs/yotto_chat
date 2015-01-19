@@ -47,6 +47,7 @@ group :development do
   gem 'pry'
   gem 'pry-rails'
   gem 'awesome_print'
+  gem 'quiet_assets'
 end
 
 group :development, :test do
