@@ -13,13 +13,14 @@ class SkillSetsController < ApplicationController
       @skill_set = SkillSet.new
       @skill_set.build_chat_que
       @users = User.all
-      @base_skill_set = SkillSet.base
-      @skill_sets = SkillSet.all
+      #@base_skill_set = SkillSet.base
+      @skill_sets = SkillSet.base
+      #parent_skill_sets
   end
  
   def create
     @users = User.all
-    @skill_sets = SkillSet.all
+    #@skill_sets = SkillSet.all
     @skill_set = SkillSet.new(skill_set_params)
     
     if @skill_set.save  
@@ -27,6 +28,7 @@ class SkillSetsController < ApplicationController
       flash[:success] = "Skill Set Added Successfully."
       redirect_to @skill_set
     else
+      #parent_skill_sets
       render 'new'
     end
   end
@@ -35,8 +37,7 @@ class SkillSetsController < ApplicationController
     @skill_set = SkillSet.find(params[:id])
     @skill_set.chat_que || @skill_set.build_chat_que
     @users = User.all
-    @base_skill_set = SkillSet.base
-    @skill_sets = SkillSet.all
+    @skill_sets = SkillSet.base
   end
 
   def update
@@ -56,7 +57,23 @@ class SkillSetsController < ApplicationController
     flash[:success] = "Skill Set deleted"
     redirect_to skill_sets_url
   end 
-
+  def parent_skill_sets
+    @skill_sets = SkillSet.base
+    @skill_set_array = []
+    @skill_sets.each do |skills|
+      @skill_set_array.push('id' => skills.id, 'name' => skills.name)
+      child_skill_sets(skills,i=0)
+    end
+  end
+  def child_skill_sets(skills,i)
+    i+=1
+    skills.children.each do |child|
+      @skill_set_array.push('id' => child.id, 'name' => "#{'-' *i} #{child.name}" )
+      if child.children.present?
+        child_skill_sets(child,i)
+      end
+    end
+  end
   private
 
   def skill_set_params
