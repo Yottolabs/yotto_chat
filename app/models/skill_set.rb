@@ -34,7 +34,4 @@ class SkillSet < ActiveRecord::Base
     attributed[:name].blank?
   end
 
-  def users=(arg)
-    binding.pry
-  end
-end
+ end
