@@ -10,7 +10,7 @@ module AuthModel
               format: { with: VALID_EMAIL_REGEX },
               uniqueness: { case_sensitive: false }
     has_secure_password
-    validates :password, length: { minimum: 6 }
+    validates :password, length: { minimum: 6 }, :if => lambda{|u| u.password.present?}
           
   # Returns the hash digest of the given string.
     def digest(string)
