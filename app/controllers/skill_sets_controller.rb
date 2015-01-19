@@ -74,6 +74,7 @@ class SkillSetsController < ApplicationController
       end
     end
   end
+  
   private
 
   def skill_set_params
