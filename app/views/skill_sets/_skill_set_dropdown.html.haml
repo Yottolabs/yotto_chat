@@ -2,7 +2,10 @@
   %li
     %div.ele-row
       %div.ele-col-left
-        = radio_button("skill_set", "parent_id", "#{skill_set.id}") 
+        - if is_not_skillset_controller
+          = radio_button "skill_set", "parent_id", "#{skill_set.id}",required: true 
+        - else 
+          = radio_button "skill_set", "parent_id", "#{skill_set.id}"
       %div.ele-col-right
         = "#{skill_set.id}-#{skill_set.name}"
     %ul
@@ -11,8 +14,14 @@
   %li
     %div.ele-row
       %div.ele-col-left
-        = radio_button("skill_set", "parent_id", "#{skill_set.id}") 
+        - if is_not_skillset_controller
+          = radio_button "skill_set", "parent_id", "#{skill_set.id}",required: true 
+        - else 
+          = radio_button "skill_set", "parent_id", "#{skill_set.id}"
       %div.ele-col-right
         = "#{skill_set.id}-#{skill_set.name}"
 
 
+=# debug is_not_skillset_controller
+
+=# debug validate_true_skillset_options#required: true if params[:controller]== "customers"
